@@ -24,7 +24,6 @@ const styles = {
     display: "flex",
     marginBottom: 20,
     position: "relative",
-    minHeight: 20,
   },
   content: {
     padding: 25,
@@ -33,7 +32,7 @@ const styles = {
   image: {
     minWidth: 150,
     objectFit: "cover",
-    minHeight: 70,
+    height: 140,
   },
 };
 
