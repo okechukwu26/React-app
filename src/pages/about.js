@@ -12,6 +12,9 @@ const styles = (theme) => ({
   icon: {
     color: "green",
   },
+  space: {
+    lineSpacing: "1.5rem",
+  },
 });
 
 const about = (props) => {
@@ -19,7 +22,7 @@ const about = (props) => {
   return (
     <Fragment>
       <Grid container>
-        <Grid item sm={12}>
+        <Grid item sm={6} className={classes.space}>
           <Typography color="textPrimary" variant="body2">
             SYMAPP is a new social media platform that encourages people to
             share their thoughts, emotions and feelings with a community of
@@ -49,20 +52,21 @@ const about = (props) => {
             to make our company better and best suited to provide better sevices
             to the geberal public you can contact us on
           </Typography>
+          <Paper className={classes.paper}>
+            <Grid item sm={4}>
+              <a href="https://api.whatsapp.com/send?phone=+2347068881708">
+                <WhatsappIcon className={classes.icon} />
+              </a>
+            </Grid>
+            <Grid item sm={4}>
+              <a href="mailto:voksdesignapp@gmail.com">
+                <EmailIcon />
+              </a>
+            </Grid>
+            <Grid item sm={4}></Grid>
+          </Paper>
         </Grid>
-        <Paper className={classes.paper}>
-          <Grid item sm={4}>
-            <a href="https://api.whatsapp.com/send?phone=+2347068881708">
-              <WhatsappIcon className={classes.icon} />
-            </a>
-          </Grid>
-          <Grid item sm={4}>
-            <a href="mailto:voksdesignapp@gmail.com">
-              <EmailIcon />
-            </a>
-          </Grid>
-          <Grid item sm={4}></Grid>
-        </Paper>
+        <Grid item sm={6} />
       </Grid>
     </Fragment>
   );
