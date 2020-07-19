@@ -74,7 +74,7 @@ const theme = createMuiTheme({
     },
     paper: {
       padding: 20,
-      minHeight: 345,
+      minHeight: 305,
     },
     profile: {
       "& .image-wrapper": {
