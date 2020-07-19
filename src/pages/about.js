@@ -1,11 +1,12 @@
 import React, { Fragment } from "react";
 import Typography from "@material-ui/core/Typography";
-import Grid from "@material-ui/core/Grid";
+
 import WhatsappIcon from "@material-ui/icons/WhatsApp";
 import withStyles from "@material-ui/core/styles/withStyles";
 import PropTypes from "prop-types";
 import EmailIcon from "@material-ui/icons/Email";
-import Paper from "@material-ui/core/Paper";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
 
 const styles = (theme) => ({
   ...theme.spreadThis,
@@ -14,6 +15,16 @@ const styles = (theme) => ({
   },
   space: {
     lineSpacing: "1.5rem",
+    textAlign: "center",
+    padding: 10,
+    margin: 10,
+  },
+  root: {
+    maxWidth: "90%",
+  },
+  style: {
+    maxWidth: "100%",
+    marginBottom: 10,
   },
 });
 
@@ -21,9 +32,14 @@ const about = (props) => {
   const { classes } = props;
   return (
     <Fragment>
-      <Grid container>
-        <Grid item sm={6} className={classes.space}>
-          <Typography color="textPrimary" variant="body2">
+      <Card className={classes.root}>
+        <CardContent>
+          <Typography
+            color="textPrimary"
+            className={classes.style}
+            // style={{ lineSpacing: "2rem" }}
+            variant="body1"
+          >
             SYMAPP is a new social media platform that encourages people to
             share their thoughts, emotions and feelings with a community of
             people on the platform and the community will be able to like or
@@ -41,7 +57,14 @@ const about = (props) => {
             people from far and wide together creating an avenue for better
             interactions.
           </Typography>
-          <Typography color="inherit" variant="body2">
+          <Typography gutterBottom variant="h5" component="h2">
+            VOKDESIGN
+          </Typography>
+          <Typography
+            color="textPrimary"
+            className={classes.style}
+            variant="body1"
+          >
             VOKDESIGN is a new software company thats into web development, web
             applications for both frontend and backend, it was established in
             2020. SYMAPP is the first web appllication we are deploying to the
@@ -50,24 +73,17 @@ const about = (props) => {
             design. we at VOKDESIGN thank you for being a part of our global
             community and we will appreciate any review, sponsor and partnership
             to make our company better and best suited to provide better sevices
-            to the geberal public you can contact us on
+            to the geberal public you can contact us on email and whatsapp below
           </Typography>
-          <Paper className={classes.paper}>
-            <Grid item sm={4}>
-              <a href="https://api.whatsapp.com/send?phone=+2347068881708">
-                <WhatsappIcon className={classes.icon} />
-              </a>
-            </Grid>
-            <Grid item sm={4}>
-              <a href="mailto:voksdesignapp@gmail.com">
-                <EmailIcon />
-              </a>
-            </Grid>
-            <Grid item sm={4}></Grid>
-          </Paper>
-        </Grid>
-        <Grid item sm={6} />
-      </Grid>
+          <a style={{ marginRight: 10 }} href="mailto:voksdesignapp@gmail.com">
+            <EmailIcon />
+          </a>
+
+          <a href="https://api.whatsapp.com/send?phone=+2347068881708">
+            <WhatsappIcon className={classes.icon} />
+          </a>
+        </CardContent>
+      </Card>
     </Fragment>
   );
 };

@@ -23,16 +23,17 @@ const styles = {
   card: {
     display: "flex",
     marginBottom: 20,
-    minHeight: 250,
     position: "relative",
+    minHeight: 20,
   },
   content: {
     padding: 25,
     objectFit: "cover",
   },
   image: {
-    minWidth: 200,
+    minWidth: 150,
     objectFit: "cover",
+    minHeight: 70,
   },
 };
 
