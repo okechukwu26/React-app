@@ -55,7 +55,9 @@ const about = (props) => {
             personal information to signup just your email.Every mind that is
             posted will be viewed by the glogal community of SYMAPP bringing
             people from far and wide together creating an avenue for better
-            interactions.
+            interactions. This web application is not very suitable on mobile
+            view as we still working to make it more suitable on mobile
+            platforms,
           </Typography>
           <Typography gutterBottom variant="h5" component="h2">
             VOKDESIGN
