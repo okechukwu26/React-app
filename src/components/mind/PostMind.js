@@ -33,6 +33,14 @@ const styles = (theme) => ({
     left: "91%",
     top: "6%",
   },
+  "@media(max-width :599px)": {
+    submitButton: {
+      fontSize: 11,
+    },
+    close: {
+      margin: "-6px",
+    },
+  },
 });
 
 class PostMind extends Component {
@@ -86,7 +94,7 @@ class PostMind extends Component {
             onClick={this.handleClose}
             tipClassName={classes.closeButton}
           >
-            <CloseIcon />
+            <CloseIcon className={classes.close} />
           </MyButton>
           <DialogTitle>Post your mind</DialogTitle>
           <DialogContent>

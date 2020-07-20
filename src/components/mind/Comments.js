@@ -27,6 +27,7 @@ class Comments extends Component {
     return (
       <Grid container>
         {comments.map((comment, index) => {
+          console.log(comment);
           const { userHandle, createdAt, userImage, body } = comment;
           return (
             <Fragment key={createdAt}>
@@ -68,7 +69,7 @@ class Comments extends Component {
     );
   }
 }
-Comments.propsTypes = {
+Comments.propTypes = {
   comments: PropTypes.array.isRequired,
   classes: PropTypes.object.isRequired,
 };

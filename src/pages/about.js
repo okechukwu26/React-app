@@ -37,7 +37,6 @@ const about = (props) => {
           <Typography
             color="textPrimary"
             className={classes.style}
-            // style={{ lineSpacing: "2rem" }}
             variant="body1"
           >
             SYMAPP is a new social media platform that encourages people to

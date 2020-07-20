@@ -10,9 +10,11 @@ import MindDialog from "./MindDialog";
 import LikeButton from "./LikeButton";
 //Mui Stuff
 import Card from "@material-ui/core/Card";
+
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
+
 //icon
 import ChatIcon from "@material-ui/icons/Chat";
 
@@ -24,7 +26,6 @@ const styles = {
     display: "flex",
     marginBottom: 20,
     position: "relative",
-    height: 285,
   },
   content: {
     padding: 25,
@@ -32,8 +33,35 @@ const styles = {
   },
   image: {
     minWidth: 150,
-    objectFit: "cover",
-    height: 170,
+  },
+  "@media(max-width: 768px)": {
+    card: {
+      padding: 0,
+    },
+    content: {
+      padding: 10,
+    },
+  },
+  "@media(max-width:599px)": {
+    card: {
+      padding: 0,
+    },
+    content: {
+      padding: 5,
+    },
+    type: {
+      fontSize: "0.8rem",
+    },
+    body: {
+      fontSize: "0.5rem",
+    },
+    comment: {
+      fontSize: 10,
+    },
+
+    time: {
+      fontSize: "0.5rem",
+    },
   },
 };
 
@@ -68,9 +96,11 @@ class Mind extends Component {
           image={userImage}
           title="profile image"
         />
+
         <CardContent className={classes.content}>
           <Typography
             variant="h5"
+            className={classes.type}
             component={Link}
             to={`/user/${userHandle}`}
             color="primary"
@@ -78,16 +108,22 @@ class Mind extends Component {
             {userHandle}
           </Typography>
           {deleteButton}
-          <Typography variant="body2" color="textSecondary">
+          <Typography
+            variant="body2"
+            color="textSecondary"
+            className={classes.time}
+          >
             {dayjs(createdAt).fromNow()}
           </Typography>
-          <Typography variant="body1">{body}</Typography>
+          <Typography variant="body1" className={classes.body}>
+            {body}
+          </Typography>
           <LikeButton mindId={mindId} />
-          <span>{likeCount} Likes</span>
+          <span className={classes.comment}>{likeCount} Likes</span>
           <MyButton tip="comments">
             <ChatIcon color="primary" />
           </MyButton>
-          <span>{commentCount} comments</span>
+          <span className={classes.comment}>{commentCount} comments</span>
           <MindDialog
             mindId={mindId}
             userHandle={userHandle}

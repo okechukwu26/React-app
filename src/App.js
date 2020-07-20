@@ -106,7 +106,7 @@ const theme = createMuiTheme({
         border: "none",
         margin: "0 0 10px 0",
       },
-      "& svg.buttin": {
+      "& svg.button": {
         "&:hover": {
           cursor: "pointer",
         },

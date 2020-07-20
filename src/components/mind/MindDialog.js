@@ -4,7 +4,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import MyButton from "../../Utill/MyButton";
 import dayjs from "dayjs";
 import { Link } from "react-router-dom";
-import LikeButton from "./LikeButton";
+
 import Comments from "./Comments";
 import CommentForm from "./CommentForm";
 //Mui Stuff
@@ -46,6 +46,24 @@ const styles = (theme) => ({
     textAlign: "center",
     marginTop: 50,
     marginBottom: 50,
+  },
+  "@media(max-width: 769px)": {
+    spin: {
+      fontSize: 10,
+    },
+    profileImage: {
+      height: 50,
+      padding: 0,
+    },
+    types: {
+      fontSize: 15,
+    },
+    type: {
+      fontSize: 10,
+    },
+    grid: {
+      padding: 3,
+    },
   },
 });
 
@@ -93,16 +111,17 @@ class MindDialog extends Component {
 
     const dialogMarkup = loading ? (
       <div className={classes.spinnerDiv}>
-        <CircularProgress size={200} thickness={2} />
+        <CircularProgress className={classes.spin} size={200} thickness={2} />
       </div>
     ) : (
       <Grid container spacing={3}>
         <Grid item sm={5}>
           <img src={userImage} alt="profile" className={classes.profileImage} />
         </Grid>
-        <Grid item sm={7}>
+        <Grid item sm={7} className={classes.grid}>
           <Typography
             component={Link}
+            className={classes.types}
             color="primary"
             variant="h5"
             to={`/users/${userHandle}`}
@@ -110,17 +129,23 @@ class MindDialog extends Component {
             @{userHandle}
           </Typography>
           <hr className={classes.invisibleSeperator} />
-          <Typography color="textSecondary" variant="body2">
+          <Typography
+            color="textSecondary"
+            variant="body2"
+            className={classes.type}
+          >
             {dayjs(createdAt).format(" h:mm a, MMMM DD YYYY")}
           </Typography>
           <hr className={classes.invisibleSeperator} />
-          <Typography variant="body1">{body}</Typography>
-          <LikeButton mindId={mindId} />
-          <span>{likeCount} likes</span>
+          <Typography variant="body1" className={classes.type}>
+            {body}
+          </Typography>
+
+          <span className={classes.type}>{likeCount} likes</span>
           <MyButton tip="comments">
             <ChatIcon color="primary" />
           </MyButton>
-          <span>{commentCount} comments</span>
+          <span className={classes.type}>{commentCount} comments</span>
         </Grid>
         <hr className={classes.visibleSeperator} />
         <CommentForm mindId={mindId} />

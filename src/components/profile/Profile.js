@@ -26,6 +26,40 @@ import { connect } from "react-redux";
 import { logoutUser, uploadImage } from "../../Redux/actions/userAction";
 const styles = (theme) => ({
   ...theme.spreadThis,
+  "@media (max-width: 768px) ": {
+    paper: {
+      width: 160,
+      minHeight: 0,
+    },
+    profile: {
+      "& .profile-image": {
+        width: "-webkit - fill - available",
+        maxHeight: "auto",
+        objectFit: "cover",
+        maxWidth: "100%",
+        borderRadius: "50%",
+      },
+    },
+  },
+  "@media (max-width: 599px) ": {
+    paper: {
+      width: "100%",
+      minHeight: 0,
+    },
+    type: {
+      fontSize: "0.8rem",
+    },
+    profile: {
+      "& .profile-image": {
+        width: "-webkit - fill - available",
+        maxHeight: "auto",
+        objectFit: "cover",
+        maxWidth: "100%",
+        borderRadius: "50%",
+        margin: "auto",
+      },
+    },
+  },
 });
 
 class Profile extends Component {
@@ -80,6 +114,7 @@ class Profile extends Component {
                 to={`/user/${handle}`}
                 color="primary"
                 variant="h5"
+                className={classes.type}
               >
                 @{handle}
               </MuiLink>
